@@ -1,4 +1,4 @@
-package io.github.iamyours.wandroid.net
+package com.study.myapplication.net
 
 import androidx.lifecycle.LiveData
 import com.study.myapplication.BuildConfig

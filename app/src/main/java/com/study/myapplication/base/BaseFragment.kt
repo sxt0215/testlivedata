@@ -1,4 +1,4 @@
-package io.github.iamyours.wandroid.base
+package com.study.myapplication.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
-import io.github.iamyours.wandroid.observer.LoadingObserver
+import com.study.myapplication.observer.LoadingObserver
 
 open abstract class BaseFragment<T : ViewDataBinding> : Fragment() {
 

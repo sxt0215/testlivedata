@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <variable
+            name="vm"
+            type="com.study.myapplication.home.HomeFragmentVM" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <cn.bingoogolapple.bgabanner.BGABanner
+            android:id="@+id/fragment_home_banner"
+            android:layout_width="match_parent"
+            android:layout_height="158dp"
+            android:layout_marginLeft="@dimen/margin_19"
+            android:layout_marginRight="@dimen/margin_19"
+            app:data="@{vm.banners}"
+            app:banner_indicatorGravity="bottom|center_horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:banner_isNumberIndicator="true"
+            app:banner_pointContainerBackground="#0000"
+            app:banner_transitionEffect="zoom"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Home"
+            android:textColor="@color/color_F57E27" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

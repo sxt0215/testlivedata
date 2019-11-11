@@ -1,4 +1,4 @@
-package io.github.iamyours.wandroid.observer
+package com.study.myapplication.observer
 
 import android.content.Context
 import androidx.lifecycle.Observer

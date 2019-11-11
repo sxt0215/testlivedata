@@ -1,4 +1,4 @@
-package io.github.iamyours.wandroid.extension
+package com.study.myapplication.extension
 
 import android.content.Context
 import android.view.View

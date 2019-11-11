@@ -1,4 +1,4 @@
-package io.github.iamyours.wandroid.binds
+package com.study.myapplication.binds
 
 import android.app.Activity
 import android.text.Html
@@ -12,8 +12,8 @@ import cn.bingoogolapple.bgabanner.BGABanner
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener
-import io.github.iamyours.wandroid.extension.displayWithUrl
-import io.github.iamyours.wandroid.extension.hideKeyboard
+import com.study.myapplication.extension.displayWithUrl
+import com.study.myapplication.extension.hideKeyboard
 
 
 @BindingAdapter(

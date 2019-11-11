@@ -1,8 +1,8 @@
-package io.github.iamyours.wandroid.base
+package com.study.myapplication.base
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import io.github.iamyours.wandroid.net.WanApi
+import com.study.myapplication.net.WanApi
 
 open class BaseViewModel : ViewModel() {
     val refreshTrigger = MutableLiveData<Boolean>()
