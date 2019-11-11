@@ -1,4 +1,4 @@
-package com.study.myapplication
+package com.study.myapplication.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.study.myapplication.R.*
 import com.study.myapplication.databinding.ActivityMainBinding
-import com.study.myapplication.me.MineFragment
+import com.study.myapplication.ui.me.MineFragment
 import com.study.myapplication.util.TabItem
 import com.sxt.study.livedata.ui.home.HomeFragment
 import kotlinx.android.synthetic.main.view_tab.view.*

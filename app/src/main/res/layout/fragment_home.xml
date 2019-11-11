@@ -5,7 +5,7 @@
 
         <variable
             name="vm"
-            type="com.study.myapplication.home.HomeFragmentVM" />
+            type="com.study.myapplication.ui.home.HomeFragmentVM" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

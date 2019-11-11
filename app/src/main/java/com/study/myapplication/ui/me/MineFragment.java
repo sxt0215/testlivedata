@@ -1,4 +1,4 @@
-package com.study.myapplication.me;
+package com.study.myapplication.ui.me;
 
 
 import com.study.myapplication.R;

@@ -1,32 +1,32 @@
-package com.sxt.study.livedata.ui.home
+package com.study.myapplication.ui.before
 
 import android.os.Bundle
 import android.widget.ImageView
 import cn.bingoogolapple.bgabanner.BGABanner
 import com.study.myapplication.R
-import com.study.myapplication.base.BaseFragment
+import com.study.myapplication.base.BaseActivity
 import com.study.myapplication.bean.BannerResponseBean
-import com.study.myapplication.databinding.FragmentHomeBinding
+import com.study.myapplication.databinding.ActivityBeforeBinding
 import com.study.myapplication.extension.displayWithUrl
 import com.study.myapplication.extension.viewModel
-import com.study.myapplication.home.HomeFragmentVM
 
 
-class HomeFragment : BaseFragment<FragmentHomeBinding>() {
+class LoginBeforeActivity: BaseActivity<ActivityBeforeBinding>() {
     override val layoutId: Int
-        get() = R.layout.fragment_home
+        get() = R.layout.activity_before
 
-    val vm by viewModel<HomeFragmentVM>()
+    val vm by viewModel<LoginBeforeVM>()
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         initBanner()
         binding.vm = vm
         binding.executePendingBindings()
     }
 
     private fun initBanner() {
-        binding.fragmentHomeBanner.run {
+        binding.banner.run {
             val adapter: BGABanner.Adapter<ImageView, BannerResponseBean> =
                     BGABanner.Adapter { _, image,
                                         model,
@@ -36,7 +36,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             setAdapter(adapter)
             setDelegate { _, _, model, _ ->
                 if (model is BannerResponseBean) {
-//                    WebActivity.nav(model.url, activity!!)
+                    //点击页面跳转逻辑
                 }
             }
         }
