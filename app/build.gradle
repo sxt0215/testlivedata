@@ -1,0 +1,69 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.study.myapplication"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            buildConfigField "boolean", "USE_CANARY", "true"
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //测试环境8100
+//            buildConfigField "String", "IP_URL", '"https://testphl.nowrupiah.com"'
+            //测试环境8300
+            buildConfigField "String", "ID_BaseUrl", '"https://yscidn.nowrupiah.com"'
+            buildConfigField "String", "ID_Config", '"eyJlbmNyeXB0aW9uIjpudWxsLCJvcyI6IjIiLCJ2ZXJzaW9uIjoieHh4X2xHRVVpVTFrR1M5RVRBMVUiLCJjaGFubmVsIjoiZGI0YTgzYmU4NDg4NDJhNmJiZGNiY2VmN2RiNWIyNmIiLCJyZWdQbGF0Zm9ybSI6Imdvb2dsZS1wbGF5In0=.3614534561e0e3683fb4cbb683bdf63d698598fd"'
+        }
+
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            buildConfigField "boolean", "USE_CANARY", "false"
+            minifyEnabled true
+            shrinkResources true
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            buildConfigField "String", "IP_URL", '"https://glplhax.pesogogo.xyz"'
+            buildConfigField "String", "IP_Config", '"eyJlbmNyeXB0aW9uIjpudWxsLCJvcyI6IjIiLCJ2ZXJzaW9uIjoieHh4X25OeWlqQjVqTjNkTTRJYnhfZmF0Ym95XzIiLCJjaGFubmVsIjoiY2JlMTdmMWU4MjY0NGNkYzhhMjBkODM3NTQ5ZTQ1NzgiLCJyZWdQbGF0Zm9ybSI6Imdvb2dsZS1wbGF5In0=.99877f3ac54be7fff38555f1b684e1f314a26f3f"'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.6.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
+    implementation files('libs/BASE64.jar')
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.1.0'
+    implementation 'cn.bingoogolapple:bga-banner:2.2.6@aar'
+    implementation 'com.kaopiz:kprogresshud:1.2.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    // 图片加载
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0'
+}
