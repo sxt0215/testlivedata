@@ -6,17 +6,18 @@ import com.study.myapplication.RequestBean.EmptyRequestBean
 import com.study.myapplication.RequestBean.IdBorrowProductRequestBody
 import com.study.myapplication.base.BaseViewModel
 import com.study.myapplication.bean.BannerResponseBean
+import com.study.myapplication.net.GLURLConst
 
 class MainVM : BaseViewModel(){
     private val bannerList = Transformations.switchMap(page) {
-        api.bannerList(EmptyRequestBean(),api.idYn_getHeader())
+        api.bannerList(EmptyRequestBean(), GLURLConst.idYn_getHeader())
     }
     val banners: LiveData<List<BannerResponseBean>> = Transformations.map(bannerList) {
         it.data ?: ArrayList()
     }
 
     private val productList = Transformations.switchMap(page) {
-        api.getBorrowProduct(IdBorrowProductRequestBody("1"),api.idYn_getHeader())
+        api.getBorrowProduct(IdBorrowProductRequestBody("1"),GLURLConst.idYn_getHeader())
     }
     val product = Transformations.map(productList){
         val list = it.data ?: ArrayList()

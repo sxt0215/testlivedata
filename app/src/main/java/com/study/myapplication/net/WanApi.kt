@@ -9,21 +9,25 @@ import com.study.myapplication.bean.BorrowProductBean
 import com.study.myapplication.net.GLURLConst
 import com.study.myapplication.net.MyRetrofitConverterFactory
 import com.study.myapplication.util.SP
-import okhttp3.Cookie
-import okhttp3.CookieJar
-import okhttp3.HttpUrl
-import okhttp3.OkHttpClient
+import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.http.*
+import java.net.Proxy
 import java.util.HashMap
 import java.util.concurrent.TimeUnit
+import javax.net.ssl.SSLContext
+import javax.net.ssl.SSLSocketFactory
 
 interface WanApi {
     companion object {
         fun get(): WanApi {
+//            val ssl = SSLContext.getInstance("SSL")
+//            ssl.init(null, arrayOf(TrustAllCerts()), java.security.SecureRandom())
             val clientBuilder = OkHttpClient.Builder()
+//                .sslSocketFactory(ssl.socketFactory,TrustAllCerts())
                 .connectTimeout(60, TimeUnit.SECONDS)
+//                .proxy(Proxy.NO_PROXY)
             if (BuildConfig.DEBUG) {
                 val loggingInterceptor = HttpLoggingInterceptor()
                 loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
@@ -40,6 +44,14 @@ interface WanApi {
                     return SP.getCookies()
                 }
             })
+//            clientBuilder.addInterceptor(object : Interceptor{
+//                override fun intercept(chain: Interceptor.Chain): Response {
+//                    val o = chain.request()
+//                    o.newBuilder()
+//                        .header("","")
+//
+//                }
+//            })
             return Retrofit.Builder()
                 .baseUrl(BuildConfig.ID_BaseUrl)
                 .client(clientBuilder.build())
@@ -50,32 +62,17 @@ interface WanApi {
         }
     }
 
-    fun  idYn_getHeader(): Map<String, String> {
-        val headerMap = HashMap<String, String>()
-        headerMap["Content-Type"] = "application/json"
-        headerMap["Accept"] = "application/json"
-        headerMap["config"] = BuildConfig.ID_Config
-        headerMap["version"] = "" + BuildConfig.VERSION_NAME
-        headerMap["token"] = ""
-        return headerMap
-    }
 
-    fun idYn_getImgHeader(): Map<String, String> {
-        val headerMap = HashMap<String, String>()
-        headerMap["Accept"] = "application/json"
-        headerMap["config"] = BuildConfig.ID_Config
-        headerMap["version"] = "" + BuildConfig.VERSION_NAME
-        headerMap["token"] = ""
-        headerMap["cNo"] = "VNM"
-        return headerMap
-    }
 
 
     /**
      * 首页banner
      */
     @POST(GLURLConst.KGetConfigBannerApi)
-    fun bannerList(@Body bean: EmptyRequestBean, @HeaderMap map: Map<String, String>): LiveData<ApiResponse<List<BannerResponseBean>>>
+    fun bannerList(@Body bean: EmptyRequestBean, @HeaderMap map: Map<String, String>) : LiveData<ApiResponse<List<BannerResponseBean>>>
+
+    @POST(GLURLConst.KGetConfigBannerApi)
+    fun bannerList(@Body bean: EmptyRequestBean) : LiveData<ApiResponse<List<BannerResponseBean>>>
 
     /**
      * 获取借款产品

@@ -23,6 +23,7 @@ class LoginBeforeActivity: BaseActivity<ActivityBeforeBinding>() {
         initBanner()
         binding.vm = vm
         binding.executePendingBindings()
+        vm.refresh()
     }
 
     private fun initBanner() {

@@ -24,7 +24,7 @@ android {
             //测试环境8100
 //            buildConfigField "String", "IP_URL", '"https://testphl.nowrupiah.com"'
             //测试环境8300
-            buildConfigField "String", "ID_BaseUrl", '"https://yscidn.nowrupiah.com"'
+            buildConfigField "String", "ID_BaseUrl", '"https://yscidn.nowrupiah.com:8081"'
             buildConfigField "String", "ID_Config", '"eyJlbmNyeXB0aW9uIjpudWxsLCJvcyI6IjIiLCJ2ZXJzaW9uIjoieHh4X2xHRVVpVTFrR1M5RVRBMVUiLCJjaGFubmVsIjoiZGI0YTgzYmU4NDg4NDJhNmJiZGNiY2VmN2RiNWIyNmIiLCJyZWdQbGF0Zm9ybSI6Imdvb2dsZS1wbGF5In0=.3614534561e0e3683fb4cbb683bdf63d698598fd"'
         }
 

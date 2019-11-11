@@ -3,16 +3,20 @@ package com.study.myapplication.net;
 
 import com.study.myapplication.BuildConfig;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class GLURLConst {
 
     // 借款产品列表      "/list/product"
-    public static final String KListProductApi = ":8081" + "/Po/legt/lptp";
+//    public static final String KListProductApi = ":8081" + "/Po/legt/lptp";
+    public static final String KListProductApi = "Po/legt/lptp";
 //
 //    //强更  get/config/upgrade
 //    static final String CHECK_VERSION = BuildConfig.IP_URL + ":8081" + "/Po/gege/gculu";
 
     // App Banner   get/config/banner
-    public static final String KGetConfigBannerApi = ":8081" + "/Po/gegr/gcbcm";
+    public static final String KGetConfigBannerApi =  "Po/gegr/gcbcm";
 //    static final String KGetConfigBannerApi1 = BuildConfig.IP_URL+":8081" + "/Po/gegr/gcbcm";
 //
 //    // 获取短信get/code/sms
@@ -94,5 +98,24 @@ public class GLURLConst {
 //    //post/order/eperiod
 //    static final String FeePHLOrderlipAPI = BuildConfig.IP_URL + ":8081" + "/Po/pegd/poecp";
 
+    public static Map<String, String> idYn_getHeader() {
+        HashMap headerMap = new HashMap<String, String>();
+        headerMap.put("Content-Type","application/json");
+        headerMap.put("Accept", "application/json");
+        headerMap.put("config", BuildConfig.ID_Config);
+        headerMap.put("version", "" + BuildConfig.VERSION_NAME);
+        headerMap.put("token", "");
+        return headerMap;
+    }
+
+    public static Map<String, String> idYn_getImgHeader()  {
+        HashMap headerMap = new HashMap<String, String>();
+        headerMap.put("Accept", "application/json");
+        headerMap.put("config", BuildConfig.ID_Config);
+        headerMap.put("version", "" + BuildConfig.VERSION_NAME);
+        headerMap.put("token", "");
+        headerMap.put("cNo", "VNM");
+        return headerMap;
+    }
 }
 

@@ -5,12 +5,16 @@ import androidx.lifecycle.Transformations
 import com.study.myapplication.RequestBean.EmptyRequestBean
 import com.study.myapplication.base.BaseViewModel
 import com.study.myapplication.bean.BannerResponseBean
+import com.study.myapplication.net.GLURLConst
 
 class LoginBeforeVM: BaseViewModel() {
 
     private val bannerList = Transformations.switchMap(page) {
-        api.bannerList(EmptyRequestBean(),api.idYn_getHeader())
+        val idYn_getHeader = GLURLConst.idYn_getHeader()
+//        api.bannerList(EmptyRequestBean(),idYn_getHeader)
+        api.bannerList(EmptyRequestBean(),idYn_getHeader)
     }
+
     val banners: LiveData<List<BannerResponseBean>> = Transformations.map(bannerList) {
         it.data ?: ArrayList()
     }
